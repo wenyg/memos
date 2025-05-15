@@ -95,6 +95,7 @@ const TagItemContainer: React.FC<TagItemContainerProps> = (props: TagItemContain
     if (isActive) {
       memoFilterStore.removeFilter((f) => f.factor === "tagSearch" && f.value === tag.text);
     } else {
+      memoFilterStore.removeFilter((f) => f.factor === "tagSearch");
       memoFilterStore.addFilter({
         factor: "tagSearch",
         value: tag.text,
@@ -111,9 +112,8 @@ const TagItemContainer: React.FC<TagItemContainerProps> = (props: TagItemContain
     <>
       <div className="relative flex flex-row justify-between items-center w-full leading-6 py-0 mt-px rounded-lg text-sm select-none shrink-0">
         <div
-          className={`flex flex-row justify-start items-center truncate shrink leading-5 mr-1 text-gray-600 dark:text-gray-400 ${
-            isActive && "!text-blue-600"
-          }`}
+          className={`flex flex-row justify-start items-center truncate shrink leading-5 mr-1 text-gray-600 dark:text-gray-400 ${isActive && "!text-blue-600"
+            }`}
         >
           <div className="shrink-0">
             <HashIcon className="w-4 h-auto shrink-0 mr-1 text-gray-400 dark:text-gray-500" />
@@ -135,9 +135,8 @@ const TagItemContainer: React.FC<TagItemContainerProps> = (props: TagItemContain
       </div>
       {hasSubTags ? (
         <div
-          className={`w-[calc(100%-0.5rem)] flex flex-col justify-start items-start h-auto ml-2 pl-2 border-l-2 border-l-gray-200 dark:border-l-zinc-800 ${
-            !showSubTags && "!hidden"
-          }`}
+          className={`w-[calc(100%-0.5rem)] flex flex-col justify-start items-start h-auto ml-2 pl-2 border-l-2 border-l-gray-200 dark:border-l-zinc-800 ${!showSubTags && "!hidden"
+            }`}
         >
           {tag.subTags.map((st, idx) => (
             <TagItemContainer key={st.text + "-" + idx} tag={st} />

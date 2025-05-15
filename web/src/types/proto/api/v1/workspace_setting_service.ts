@@ -686,7 +686,7 @@ function createBaseWorkspaceMemoRelatedSetting(): WorkspaceMemoRelatedSetting {
     disallowPublicVisibility: false,
     displayWithUpdateTime: false,
     contentLengthLimit: 0,
-    enableDoubleClickEdit: false,
+    enableDoubleClickEdit: true,
     enableLinkPreview: false,
     enableComment: false,
     enableLocation: false,
